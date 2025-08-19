@@ -34,7 +34,6 @@ symptom_list =['itching','skin-rash','nodal-skin-eruptions','dischromic-patches'
                'spinning-movements','unsteadiness','pus-filled-pimples','blackheads','scurring','bladder-discomfort','foul-smell-of','urine','continuous-feel-of-urine',
                'skin-peeling','silver-like-dusting','small-dents-in-nails','inflammatory-nails','blister','red-sore-around-nose','yellow-crust-ooze']
 
-Click to add a cell.
 
 # ---------------- MULTISELECT OPTION ----------------
 selected_symptoms = st.multiselect(
@@ -77,4 +76,5 @@ st.markdown(
     """,
     unsafe_allow_html=True
 )
+
 
