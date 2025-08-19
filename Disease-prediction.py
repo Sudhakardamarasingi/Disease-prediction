@@ -1,19 +1,20 @@
 import streamlit as st
 import joblib
 
-model = joblib.load("log_reg_model.pkl")
-vectorizer = joblib.load("tfidf_vectorizer.pkl")
+# Load pipeline
+@st.cache_resource
+def load_model():
+    return joblib.load("disease_pipeline.pkl")
 
-st.title("Disease Prediction App")
+model = load_model()
 
-symptoms = st.text_area("Enter symptoms:")
+st.title("🩺 Disease Prediction from Symptoms")
+
+symptoms = st.text_area("Enter symptoms (comma/space separated):", placeholder="e.g. fever, cough, headache")
 
 if st.button("Predict"):
     if symptoms.strip():
-        X_input = vectorizer.transform([symptoms])
-        prediction = model.predict(X_input)[0]
-        st.success(f"Predicted Disease: {prediction}")
+        pred = model.predict([symptoms])[0]
+        st.success(f"**Predicted Disease:** {pred}")
     else:
-        st.warning("Please enter symptoms.")
-
-
+        st.warning("Please enter symptoms first!")
