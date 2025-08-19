@@ -84,9 +84,7 @@ else:
                 prediction = model.predict([input_string])
                 result = prediction[0]  # Get the first (and only) prediction
 
-                st.success(f"✅ Predicted Disease: **{result}**
-                <br>
-                <small><i>Consult a healthcare professional for an accurate diagnosis.</i></small>")
+                st.success(f"✅ Predicted Disease: **{result}** <br>Consult a healthcare professional for an accurate diagnosis.")
             except Exception as e:
                 st.error(f"An error occurred during prediction: {e}")
         else:
@@ -105,6 +103,7 @@ st.markdown(
     """,
     unsafe_allow_html=True
 )
+
 
 
 
